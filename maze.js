@@ -385,8 +385,16 @@ function checkObjectDistance(object) {
   }
 }
 
+let TrashCollected = 0
+
 document.addEventListener("keydown", (event) => {
-   
+  if(TrashCollected == 3){
+    GAME_DIV.style.display = "none"
+    END_DIV.style.display = "block"
+  }
+
+
+
     if(event.keyCode == "32 "){
       if (!animationStarted) {
           animationComplete = false;
@@ -461,6 +469,8 @@ document.addEventListener("keydown", (event) => {
 
                   finger1.rotation.z = 0
                   finger1.position.y = 1
+
+                  TrashCollected += 1
                 
               }
               else if(checkObjectDistance(TrashCan2) && objectInHand == Trash2){
@@ -473,6 +483,7 @@ document.addEventListener("keydown", (event) => {
                   finger1.rotation.z = 0
                   finger1.position.y = 1 
                 
+                  TrashCollected += 1
               }
               else if(checkObjectDistance(TrashCan3) && objectInHand == Trash3){
                
@@ -483,6 +494,8 @@ document.addEventListener("keydown", (event) => {
 
                 finger1.rotation.z = 0
                 finger1.position.y = 1 
+
+                TrashCollected += 1
               
               }
               else if(objectInHand == Trash1){
@@ -542,6 +555,9 @@ document.addEventListener("keydown", (event) => {
                 finger1.rotation.z = 0
                 finger1.position.y = 1  
               }
+
+             
+
           },1000)
           }
           }
@@ -589,16 +605,7 @@ document.addEventListener("keydown", (event) => {
       // Rotate the camera clockwise on the Y axis
       camera.rotation.y -= rotationSpeed;
   }
-}, false);
-
-
-
-//Render Functions
-
-function animate(){
-    render();
-    requestAnimationFrame( animate );
-}
+}, false);  
 
 let WallBoundingBoxes = []
 
@@ -651,7 +658,45 @@ function render(){
     renderer.render( scene, camera );
 }
 
+
+
+function animate(){
+  render();
+
+  requestAnimationFrame( animate );
+
+}
+
 //START RENDERING
 animate();
 
+//Buttons 
+const StartBtn = document.querySelector("#StartBtn")
+const RulesBtn = document.querySelector("#RulesBtn")
+const BackBtn = document.querySelector("#BackBtn")
+const RestartBtn = document.querySelector("#RestartBtn")
 
+//DIVs
+const START_DIV = document.querySelector("#START_DIV")
+const RULES_DIV = document.querySelector("#RULES_DIV")
+const END_DIV = document.querySelector("#END_DIV")
+const GAME_DIV = document.querySelector("#GAME_DIV")
+
+StartBtn.addEventListener("click", () => {
+  START_DIV.style.display = "none"
+  GAME_DIV.style.display = "block"
+})
+
+RestartBtn.addEventListener("click", () => {
+  location.reload();
+})
+
+RulesBtn.addEventListener("click", () => {
+  START_DIV.style.display = "none"
+  RULES_DIV.style.display = "block"
+})
+
+BackBtn.addEventListener("click", () => {
+  RULES_DIV.style.display = "none"
+  START_DIV.style.display = "block"
+})

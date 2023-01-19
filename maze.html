@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basic Three JS app</title>
     <link rel="stylesheet" href="main.css">
+
     <style>
         body{
             margin:0;
@@ -20,32 +21,33 @@
     <div id="START_DIV">
         <div>
             <h2>Trash Maze</h2>
-            <button>Start Game</button>
-            <button>Rules</button>
+            <button id="StartBtn">Start Game</button>
+            <button id="RulesBtn">Rules</button>
         </div>
     </div>
 
     <div id="RULES_DIV">
         <div>
-
-            <h2>Movement</h2>
+            <h2>What is your objective ?</h2>
+            Pick up the 3 trash items arround the map and put them in the respective container.
             
-            Move Foward W 
+            <h2>Movement</h2>
+            Move Foward -> W 
             <br>
-            Move Backward S 
+            Move Backward -> S 
             <br>
-            Turn left using A
+            Turn left using -> A
             <br>
-            Turn left using D
+            Turn left using -> D
             <br>
-            <button>Go back</button>
+            <button id="BackBtn">Go back</button>
         </div>
     </div>
 
     <div id="END_DIV">
         <h2>End</h2>
         You've picked up all of the trash. 
-        <button>Restart</button>
+        <button id="RestartBtn">Restart</button>
     </div>
 </body>
 <script src="OrbitControls.js" type="module"></script>

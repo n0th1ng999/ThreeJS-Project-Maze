@@ -1,5 +1,5 @@
 #START_DIV{
-    display: none;
+ 
 }
 
 #RULES_DIV{
@@ -9,3 +9,19 @@
 #END_DIV{
     display: none;
 }
+
+#GAME_DIV{
+    display: none;
+}
+
+font-face { 
+    font-family: 'Montserrat', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+} 
+    
+
+:root{
+    font-family: 'Montserrat', sans-serif;
+}
+
+
